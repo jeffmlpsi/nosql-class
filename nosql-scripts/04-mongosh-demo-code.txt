@@ -1,0 +1,23 @@
+// slide 46
+cls
+var dbc= db.cityinfo.find({ pop : { $lt : 4000 }}).limit(3);
+dbc.count();
+docs=dbc.toArray())
+
+//slide 47
+var dbc= db.cityinfo.find({ pop : { $lt : 4000 }}).limit(3).skip(3);',
+ docs=dbc.toArray();
+ 
+ //slide 48
+ show collections',
+  var x = {_id : 2, key1 : "Mr. Cat",key7: "Yes please call me Mr." }
+  db.new_collection2.insertOne(x)
+  db.new_collection2.find()',
+  db.new_collection2.updateOne( { _id : 2 } , {$set: { key7 : "val9"}} )
+  db.new_collection2.find()'
+  
+  //slide 49
+  db.new_collection2.find({ key7:"val9"})
+  db.new_collection2.update(     { _id : 2 } ,    { $set:  { key7 : "Yes please call me Mr.", key9 : "Cat 9" } } )
+  db.new_collection2.updateOne({ _id : 2 } ,{ $set: { key7 : "Yes please call me Mr.", key9 : "Cat 9" }})
+  db.new_collection2.find({ _id:2})
