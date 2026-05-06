@@ -1,0 +1,17 @@
+function demo06() {
+    // ***************************************
+    // Combine the concepts used in the aggregation queries from section 02a_MongoDBAggregation 
+    // to:
+    // 	•  display the state , city name, population of largest city for a specific state
+    print("**demo06: display the state , city name, population of largest city for a specific state ")
+    print(
+        db.cityinfo.aggregate([
+            { $group:{_id: { state: "$state", city: "$city" },pop: { $sum: "$pop" }}},
+            { $sort: { pop: -1 } },
+            { $group:{_id : "$_id.state",largestCity: { $first: "$_id.city"}, pop: {$first: "$pop"}}},
+            { $sort: {pop: -1}}
+        ])
+    )
+}
+
+demo06();
